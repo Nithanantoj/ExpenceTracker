@@ -113,7 +113,7 @@ app.patch('/update-expense/:id',async function (request,response) {
     try{
         const expenseData = await Expense.findById(request.params.id)
         if(expenseData){
-            await Expense.updateOne({
+            await expenseData.updateOne({
                 "amount" : request.body.amount,
                 "category" : request.body.category,
                 "date" : request.body.date
